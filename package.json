@@ -1,0 +1,64 @@
+{
+  "name": "pandora-component-sandbox-log-hub-reporter",
+  "version": "1.0.0",
+  "description": "Pandora.js Component Sandbox Log Hub Reporter",
+  "main": "dist/ComponentSandboxLogHubReporter.js",
+  "typings": "dist/ComponentSandboxLogHubReporter.d.ts",
+  "scripts": {
+    "build": "npm run lint && rm -rf ./dist && tsc",
+    "lint": "tslint --format prose -c ./tslint.json src/**/*.ts test/**/*.ts",
+    "test": "npm run lint && NODE_ENV=unittest mocha --trace-warnings",
+    "cov": "NODE_ENV=unittest nyc mocha --trace-warnings",
+    "ci": "npm run test"
+  },
+  "keywords": [
+    "pandora"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "address": "^1.0.3",
+    "md5": "^2.2.1",
+    "pandora-component-decorator": "^2.0.0-0",
+    "urllib": "^2.33.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/chai-as-promised": "^7.1.0",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^8.5.2",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mm": "^2.1.0",
+    "mocha": "^3.5.0",
+    "nyc": "^13.1.0",
+    "pandora-component-reporter-manager": "^2.0.0-0",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.13.1",
+    "typescript": "^3.3.3333"
+  },
+  "nyc": {
+    "include": [
+      "src/*.ts",
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "typings",
+      "dist"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "json",
+      "html"
+    ],
+    "all": true
+  },
+  "files": [
+    "dist",
+    "src"
+  ]
+}
