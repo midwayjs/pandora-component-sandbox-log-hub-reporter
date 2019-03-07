@@ -5,6 +5,7 @@
   "main": "dist/ComponentSandboxLogHubReporter.js",
   "typings": "dist/ComponentSandboxLogHubReporter.d.ts",
   "scripts": {
+    "prepublish": "npm run build",
     "build": "npm run lint && rm -rf ./dist && tsc",
     "lint": "tslint --format prose -c ./tslint.json src/**/*.ts test/**/*.ts",
     "test": "npm run lint && NODE_ENV=unittest mocha --trace-warnings",
